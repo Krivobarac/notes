@@ -1,3 +1,10 @@
+:root {
+  --h-orangeredTheme-color: orangered;
+  --bg-darkTheme-color: #343a40;
+  --bg-lighterDarkTheme-color: #4b4d4e;
+  --text-darkTheme-color: #fff;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,4 +12,5 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-lighterDarkTheme-color);
 }

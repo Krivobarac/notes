@@ -1,0 +1,30 @@
+
+.navbar h3 {
+    color: var(--h-orangeredTheme-color);
+    cursor: pointer;
+}
+
+.navbar Button {
+    color: var(--h-orangeredTheme-color);
+    border-color: var(--h-orangeredTheme-color)
+}
+
+.navbar Button:hover {
+    background: var(--h-orangeredTheme-color);
+    color: var(--text-darkTheme-color);
+}
+
+.navbar Button:active {
+    text-shadow: var(--h-orangeredTheme-color);
+    color: var(--text-darkTheme-color);
+}
+
+.navbar .form-control {
+    color: var(--h-orangeredTheme-color);
+    border-color: var(--h-orangeredTheme-color);
+    background: var(--bg-darkTheme-color);
+}
+
+.navbar .form-control::placeholder {
+    color: var(--h-orangeredTheme-color);
+}

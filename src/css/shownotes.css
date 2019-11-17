@@ -1,0 +1,18 @@
+.container {
+    color: var(--text-darkTheme-color);
+}
+
+.btn {
+    color: var(--h-orangeredTheme-color);
+    border-color: var(--h-orangeredTheme-color);
+}
+
+.container .btn:hover {
+    background: var(--h-orangeredTheme-color);
+    color: var(--text-darkTheme-color);
+}
+
+.container .btn:active {
+    text-shadow: var(--h-orangeredTheme-color);
+    color: var(--text-darkTheme-color);
+}
