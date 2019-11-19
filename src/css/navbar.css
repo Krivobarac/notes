@@ -1,5 +1,65 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    background: var(--bg-darkTheme-color);
+    width: 100%;
+    margin-bottom: 10px;
+}
 
-.navbar h3 {
+nav .links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: var(--h-orangeredTheme-color);
+}
+
+nav h3 {
+    
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+nav h6 {
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+nav button {
+    max-width: max-content;
+    background: var(--bg-lighterDarkTheme-color);
+    border-color: var(--h-orangeredTheme-color);
+    border-radius: 5px;
+    color: white;
+    margin-left: 40px;
+}
+
+nav button:hover {
+    background: gray;
+}
+
+nav input {
+    max-width: 180px;
+    height: 30px;
+    background: var(--bg-lighterDarkTheme-color);
+    border-color: var(--h-orangeredTheme-color);
+    border-radius: 5px;
+    color: white;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+
+nav input::placeholder {
+    color: rgb(32, 32, 32);
+}
+
+
+
+
+/* .navbar h3 {
     color: var(--h-orangeredTheme-color);
     cursor: pointer;
 }
@@ -27,4 +87,4 @@
 
 .navbar .form-control::placeholder {
     color: var(--h-orangeredTheme-color);
-}
+} */

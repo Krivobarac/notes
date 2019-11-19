@@ -1,4 +1,82 @@
-.container {
+main {
+    width: 100%;
+}
+
+main h2, main h3 {
+    text-align: center;
+    color: white;
+}
+
+main table {
+    margin: auto;
+    color: rgb(24, 23, 23);
+    font-size: larger;
+}
+
+main table tr {
+    width: max-content;
+}
+
+main table th {
+    text-align: center;
+    border-bottom: 1px solid orangered;
+    width: max-content;
+    color: white;
+    padding: 5px 10px;
+}
+
+main table td {
+    width: max-content;
+}
+
+main table td:not(:last-child) {
+    border-bottom: 1px solid orangered;
+    padding: 10px 10px 5px;
+}
+
+main span {
+    margin-left: 7px;
+}
+
+main span .fas {
+    color: white;
+}
+
+main .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+main button {
+    margin-top: 15px;
+    max-width: max-content;
+    background: var(--bg-lighterDarkTheme-color);
+    border-color: var(--h-orangeredTheme-color);
+    border-radius: 5px;
+    color: white;
+}
+
+main button:first-of-type {
+    margin-left: -60px;
+}
+
+main button:hover {
+    background: gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* .container {
     color: var(--text-darkTheme-color);
 }
 
@@ -15,4 +93,4 @@
 .container .btn:active {
     text-shadow: var(--h-orangeredTheme-color);
     color: var(--text-darkTheme-color);
-}
+} */

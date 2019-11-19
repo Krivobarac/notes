@@ -1,0 +1,41 @@
+/* Overide bootstrap css for modal */
+
+.modal-content {
+    background: var(--bg-darkTheme-color);
+}
+
+.modal-title {
+    color: var(--h-orangeredTheme-color);
+}
+
+.form-group label {
+    color: white;
+}
+
+.modal-header .close {
+    color: var(--h-orangeredTheme-color);
+}
+
+.form-control {
+    background: var(--bg-lighterDarkTheme-color);
+    border-color: var(--h-orangeredTheme-color);
+    color: white;
+}
+
+.modal-footer .btn {
+    background: var(--bg-lighterDarkTheme-color);
+    border-color: var(--h-orangeredTheme-color);
+    color: white;
+    width: 200px;
+    min-height: 40px;
+}
+
+.modal-footer .btn:hover {
+    background: gray;
+}
+
+.modal-footer .checkInfo {
+    width: 100%;
+    justify-content: start;
+    color: red;
+}

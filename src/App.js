@@ -4,17 +4,22 @@ import ShowNotes from './components/ShowNotes';
 import AddNote from './components/AddNote';
 import ModalContextProvider from './contexts/ModalContext';
 import NoteContextProvider from './contexts/NoteContext';
+import UpdateNote from './components/UpdateNote';
+import TextContextProvider from './contexts/TextContext';
 
 function App() {
   return (
-    <div>
-      <NoteContextProvider>
-        <ModalContextProvider>
-          <NavBar />
-          <AddNote />
-        </ModalContextProvider>
-        <ShowNotes />
-      </NoteContextProvider>
+    <div className='App'>
+      <TextContextProvider>
+        <NoteContextProvider>
+          <ModalContextProvider>
+            <NavBar />
+            <AddNote />
+            <UpdateNote />
+            <ShowNotes />
+          </ModalContextProvider>
+        </NoteContextProvider>
+      </TextContextProvider>
     </div>
   );
 }

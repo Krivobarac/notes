@@ -1,0 +1,7 @@
+[
+    {"id": 1, "title": "Some Note", "body": "This is some note, about something", "date": "2019-05-08", "author": "Gasparovic Sasa", "status": "Uncomplete"},
+    {"id": 2, "title": "Second Note", "body": "This is second note, about something else", "date": "2018-11-21", "author": "Gasparovic Sasa", "status": "Uncomplete"},
+    {"id": 3, "title": "More Notes", "body": "Added some text as notes", "date": "2019-01-29", "author": "Gasparovic Sasa", "status": "Complete"},
+    {"id": 4, "title": "About Something", "body": "More notes, more notes, more notes", "date": "2017-04-12", "author": "Gasparovic Sasa", "status": "Uncomplete"},
+    {"id": 5, "title": "No more idea", "body": "No more idea about inserting notes", "date": "2019-10-07", "author": "Gasparovic Sasa", "status": "Complete"}
+]

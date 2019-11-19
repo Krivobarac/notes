@@ -1,35 +1,69 @@
 import React, { useContext, useState } from 'react'
+import '../css/addNote.css'
 import { ModalContext } from '../contexts/ModalContext'
 import { NoteContext } from '../contexts/NoteContext'
+import { TextContext } from '../contexts/TextContext'
 
 export default function AddNote() {
-    const {modal, dispatchModal} = useContext(ModalContext)
-    const {dispatchNotes} = useContext(NoteContext)
+    const {setIsModal, addModal, dispatchAddModal} = useContext(ModalContext)
+    const {dispatchNotes, draftHolder, setDraftsHolder} = useContext(NoteContext)
+    const {setTableTitle, setNoData} = useContext(TextContext)
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
-    const [priority, setPriority] = useState('normal')
-    const [date, setDate] = useState('')
-    const [time, setTime] = useState('')
     const [author, setAuthor] = useState('')
+    const [info, setInfo] = useState(null)
+
+    const closeModal = () => {
+        setIsModal(false)
+        dispatchAddModal({ type: "TURN_OF_ADD" })
+    }
 
     const addNote = () => {
+        if(!checkData()) {return}
+        dispatchAddModal({type: "TURN_OF_ADD"})
         dispatchNotes({type: 'ADD_NOTE', note: {
             title,
             body,
-            priority,
-            date,
-            time,
             author
         }})
+        setTitle('')
+        setBody('')
+        setAuthor('')
+        setIsModal(false)
     }
 
+    const draftNote = () => {
+        if(!checkData()) {return}
+        const date = new Date()
+        const draft = {
+            id: draftHolder.length + 1,
+            title,
+            body,
+            date: `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,
+            author,
+            status: 'On Wait'
+        }
+        setDraftsHolder([...draftHolder, draft])
+        dispatchAddModal({ type: "TURN_OF_ADD" })
+        setIsModal(false)
+        setTableTitle('All Drafts')
+        setNoData('Empty Drafts')
+    }
+
+    const checkData = () => {
+        if(/^\s*$/.test(title)) {setInfo('Title is required!'); return false}
+        if(/^\s*$/.test(body)) {setInfo('Body is required!'); return false}
+        if(/^\s*$/.test(author)) {setInfo('Author is required!'); return false}
+        return true
+    }
+    
     return (
-        <div className={modal} id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div className={addModal} id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title" id="exampleModalCenterTitle">Add New Note</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => dispatchModal({ type: "TURN_OF" })}>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={closeModal}>
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -44,22 +78,6 @@ export default function AddNote() {
                                 <input type="text" className="form-control" id="task" placeholder="Enter Body" value={body} onChange={(e) => setBody(e.target.value)} />
                             </div>
                             <div className="form-group">
-                                <label>Priority</label>
-                                <select className="form-control" defaultValue={priority} id="priority">
-                                    <option value="low" onChange={(e) => setPriority(e.target.value)} >Low</option>
-                                    <option value="normal" onChange={(e) => setPriority(e.target.value)} >Normal</option>
-                                    <option value="high" onChange={(e) => setPriority(e.target.value)} >High</option>
-                                </select>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="date">Date</label>
-                                <input type="date" id="date" className="form-control"  value={date} onChange={(e) => setDate(e.target.value)} />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="time">Time</label>
-                                <input type="time" id="time" className="form-control"  value={time} onChange={(e) => setTime(e.target.value)} />
-                            </div>
-                            <div className="form-group">
                                 <label htmlFor="task">Author</label>
                                 <input type="text" className="form-control" id="task" placeholder="Enter Author"  value={author} onChange={(e) => setAuthor(e.target.value)} />
                             </div>
@@ -67,7 +85,9 @@ export default function AddNote() {
                         </form>
                     </div>
                     <div className="modal-footer">
+                        <div className='checkInfo'>{info}</div>
                         <button type="button" className="btn btn-primary" onClick={addNote}>Add Note</button>
+                        <button type="button" className="btn btn-primary" onClick={draftNote}>Draft Note</button>
                     </div>
                 </div>
             </div>

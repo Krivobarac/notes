@@ -1,15 +1,25 @@
-import React, {createContext, useReducer, useEffect} from 'react'
-import { modalReducer } from '../reducers/modalReducer'
+import React, {createContext, useReducer, useState} from 'react'
+import { addModalReducer } from '../reducers/addModalReducer'
+import { updateModalReducer } from '../reducers/updateModalReducer'
 
 export const ModalContext = createContext()
 
 export default function ModalContextProvider(props) {
-    const [modal, dispatchModal] = useReducer(modalReducer, 'modal')
-    useEffect(() => {
+    const [addModal, dispatchAddModal] = useReducer(addModalReducer, 'modal fade myModal')
+    const [updateModal, dispatchUpdateModal] = useReducer(updateModalReducer, 'modal fade myModal')
+    const [isModal, setIsModal] = useState(false)
 
-    }, [modal])
     return (
-        <ModalContext.Provider value={{modal, dispatchModal}}> 
+        <ModalContext.Provider value={
+            {
+                addModal,
+                dispatchAddModal,
+                updateModal,
+                dispatchUpdateModal,
+                isModal,
+                setIsModal
+            }
+        }> 
             {props.children}
         </ModalContext.Provider>
     )
